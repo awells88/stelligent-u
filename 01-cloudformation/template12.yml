@@ -19,11 +19,11 @@ Resources:
       UserName: !Ref UserName
 
   MyPolicy:
-    Type: AWS::IAM::Policy
+    Type: AWS::IAM::ManagedPolicy
     Properties:
       Users:
         - !Ref UserName
-      PolicyName: !Ref PolicyName
+      ManagedPolicyName: !Ref PolicyName
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -31,3 +31,9 @@ Resources:
           Action:
           - s3:GetObject
           Resource: arn:aws:s3:::*
+
+Outputs:
+  PolicyArn:
+    Value: !Ref MyPolicy
+    Export:
+      Name: PolicyARN
