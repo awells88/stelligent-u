@@ -4,11 +4,11 @@ Description: 1.2 Making IAM and IAM Managed Policy
 Parameters:
   UserName:
     Description: "Name of user (Andrew) using policy"
-    Type: String
+    Type: "String"
     Default: "AndrewWells"
   PolicyName:
     Description: "Name of Policy"
-    Type: String
+    Type: "String"
     Default: "CFNUsersPolicy"
 
 
