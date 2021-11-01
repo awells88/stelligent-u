@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: 1.2 Making IAM and IAM Managed Policy
+
+Parameters:
+  UserName:
+    Description: "Name of user (Andrew) using policy"
+    Type: String
+    Default: "AndrewWells"
+  PolicyName:
+    Description: "Name of Policy"
+    Type: String
+    Default: "CFNUsersPolicy"
+  
+
+Resources:
+  MyUser:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: !Ref UserName
+
+  MyPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      Users:
+        - !Ref UserName
+      ManagedPolicyName: !Ref PolicyName
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - s3:GetObject
+          Resource: arn:aws:s3:::*
+
+Outputs:
+  PolicyArn:
+    Value: !Ref MyPolicy
+    Export:
+      Name: PolicyARN

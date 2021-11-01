@@ -1,0 +1,11 @@
+[
+	{
+	  "ParameterKey": "UserName",
+	  "ParameterValue": "wells_s3user2"
+	},
+	{
+		"ParameterKey": "PolicyName",
+		"ParameterValue": "AndrewCFNUsersPolicy"
+	}
+	
+]

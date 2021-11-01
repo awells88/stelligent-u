@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: A stack for making an S3 Bucket
+
+Parameters:
+  BucketName:
+    Description: "Name of the bucket"
+    Type: "String"
+    Default: "Andrew-Wells-s3-bucket"
+  OwnerName:
+    Description: "The owner of the bucket"
+    Type: "String"
+    Default: "SRE"
+
+Resources:
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName:
+        !Join
+          - '-'
+          - 
+              - !Ref AWS::Region
+              - !Ref AWS::AccountId
+              - !Ref BucketName
+      Tags:
+        -
+          Key: "Owner"
+          Value: !Ref OwnerName
+#aws cloudformation create-stack --stack-name andrewwellsm01x131 --template-body file://template131.yml --parameters file://parameters131.json --region $i &
