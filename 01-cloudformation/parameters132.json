@@ -1,0 +1,10 @@
+[
+	{
+	  "ParameterKey": "BucketName",
+	  "ParameterValue": "aw-m131-bucket"
+	},
+	{
+	"ParameterKey": "OwnerName",
+	"ParameterValue":"Andrew Wells"
+	}
+]
